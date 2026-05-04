@@ -1,0 +1,79 @@
+version: 0.2
+
+# CodeBuild pipeline for the Stryda marketing site.
+#
+# Source comes from s3://stryda-deploy/stryda-source.zip (uploaded by
+# the GHA deploy workflow on every push to main).
+#
+# Phases:
+#   1. pre_build  — log in to ECR
+#   2. build      — docker build + tag with both :latest AND :<short-sha>
+#   3. post_build — push both tags, register a new ECS task definition
+#                   revision pointing at :<short-sha>, update the service.
+#
+# Required IAM (on the CodeBuild service role stryda-codebuild-role):
+#   - ecr:* (scoped to repository/stryda)        — push images
+#   - ecs:RegisterTaskDefinition                  — register new td revs
+#   - ecs:DescribeTaskDefinition                  — read prior rev
+#   - ecs:UpdateService                           — roll the deploy
+#   - iam:PassRole on stryda-ecs-execution-role   — task def needs it
+#   - logs:*  (scoped to /aws/codebuild/stryda-*) — own logs
+#   - s3:GetObject + GetBucketAcl + ListBucket on stryda-deploy/* —
+#                                                    source download
+
+env:
+  variables:
+    AWS_REGION: us-east-1
+    ECR_REGISTRY: 744574782424.dkr.ecr.us-east-1.amazonaws.com
+    ECR_REPO: stryda
+    ECS_CLUSTER: stryda
+    ECS_SERVICE: stryda-web
+    TASK_FAMILY: stryda
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ECR_REGISTRY
+
+  build:
+    commands:
+      - SHORT_SHA=${CODEBUILD_RESOLVED_SOURCE_VERSION:-build-${CODEBUILD_BUILD_NUMBER}}
+      - SHORT_SHA=$(echo "$SHORT_SHA" | cut -c1-12)
+      - echo "Building image with tag $SHORT_SHA"
+      - docker build -t $ECR_REPO:$SHORT_SHA .
+      - docker tag $ECR_REPO:$SHORT_SHA $ECR_REGISTRY/$ECR_REPO:$SHORT_SHA
+      - docker tag $ECR_REPO:$SHORT_SHA $ECR_REGISTRY/$ECR_REPO:latest
+
+  post_build:
+    commands:
+      - echo Pushing both tags to ECR...
+      - docker push $ECR_REGISTRY/$ECR_REPO:$SHORT_SHA
+      - docker push $ECR_REGISTRY/$ECR_REPO:latest
+      - |
+        echo "Registering new task definition revision..."
+        aws ecs describe-task-definition \
+          --region $AWS_REGION \
+          --task-definition $TASK_FAMILY \
+          --query taskDefinition \
+          > /tmp/td-current.json
+        cat /tmp/td-current.json | jq \
+          --arg img "$ECR_REGISTRY/$ECR_REPO:$SHORT_SHA" \
+          'del(.taskDefinitionArn, .revision, .status, .requiresAttributes, .compatibilities, .registeredAt, .registeredBy)
+           | .containerDefinitions[0].image = $img' \
+          > /tmp/td-new.json
+        NEW_REV=$(aws ecs register-task-definition \
+          --region $AWS_REGION \
+          --cli-input-json file:///tmp/td-new.json \
+          --query 'taskDefinition.revision' --output text)
+        echo "Registered $TASK_FAMILY:$NEW_REV with image $ECR_REGISTRY/$ECR_REPO:$SHORT_SHA"
+      - |
+        echo "Triggering ECS rolling deploy..."
+        aws ecs update-service \
+          --region $AWS_REGION \
+          --cluster $ECS_CLUSTER \
+          --service $ECS_SERVICE \
+          --task-definition $TASK_FAMILY:$NEW_REV \
+          --query 'service.deployments[*].{status:status, td:taskDefinition, rollout:rolloutState}' \
+          --output json
+      - echo "Build + deploy queued. ECS rollout proceeds asynchronously."

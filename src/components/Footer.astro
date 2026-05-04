@@ -1,0 +1,114 @@
+---
+import Logo from './Logo.astro';
+
+const product = [
+  { label: 'Overview',  href: '/product' },
+  { label: 'Security',  href: '/security' },
+  { label: 'Demo',      href: '/demo' },
+];
+
+const company = [
+  { label: 'About',      href: '/about' },
+  { label: 'Manifesto',  href: '/manifesto' },
+  { label: 'Pitch',      href: '/pitch' },
+  { label: 'Contact',    href: 'mailto:bobbyzli@berkeley.edu' },
+];
+
+const year = new Date().getFullYear();
+---
+<footer class="footer" role="contentinfo" aria-label="Site footer">
+  <div class="container footer-inner">
+    <div class="footer-row footer-row-1">
+      <a href="/" class="footer-brand" aria-label="Stryda home">
+        <Logo size={22} />
+        <span class="footer-wordmark">stryda</span>
+      </a>
+      <p class="footer-tagline">The AI deal OS for sell-side M&amp;A.</p>
+    </div>
+
+    <div class="footer-row footer-row-2">
+      <div>
+        <h4 class="footer-h">Product</h4>
+        <ul class="footer-list">
+          {product.map((l) => <li><a href={l.href} class="footer-link">{l.label}</a></li>)}
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-h">Company</h4>
+        <ul class="footer-list">
+          {company.map((l) => <li><a href={l.href} class="footer-link">{l.label}</a></li>)}
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-row footer-row-3">
+      <span>© {year} Stryda Capital, Inc.</span>
+      <span>San Francisco · founded 2026</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--c-line);
+    padding: var(--s-9) 0 var(--s-7);
+  }
+  .footer-row {
+    padding: var(--s-7) 0;
+    border-top: 1px solid var(--c-line);
+  }
+  .footer-row-1 {
+    border-top: 0;
+    padding-top: 0;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: var(--s-5);
+    flex-wrap: wrap;
+  }
+  .footer-brand {
+    display: inline-flex; align-items: center; gap: 10px;
+    color: var(--c-fg);
+  }
+  .footer-wordmark {
+    font-family: var(--t-sans);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--c-fg);
+  }
+  .footer-tagline {
+    font-size: 14px;
+    color: var(--c-fg-2);
+    margin: 0;
+    max-width: none;
+  }
+  .footer-row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--s-7);
+  }
+  .footer-h {
+    font-family: var(--t-mono);
+    font-size: var(--t-eyebrow);
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--c-fg-2);
+    margin: 0 0 var(--s-4);
+  }
+  .footer-list {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: var(--s-3);
+  }
+  .footer-link {
+    font-size: 14px;
+    color: var(--c-fg-1);
+    transition: color 0.18s ease;
+  }
+  .footer-link:hover { color: var(--c-fg); }
+  .footer-row-3 {
+    display: flex; justify-content: space-between;
+    flex-wrap: wrap; gap: var(--s-3);
+    font-family: var(--t-mono); font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--c-fg-2);
+  }
+</style>

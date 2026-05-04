@@ -1,0 +1,145 @@
+---
+import Logo from './Logo.astro';
+
+const links = [
+  { href: '/product',   label: 'Product' },
+  { href: '/security',  label: 'Security' },
+  { href: '/about',     label: 'About' },
+  { href: '/manifesto', label: 'Manifesto' },
+  { href: '/pitch',     label: 'Pitch' },
+];
+
+const path = Astro.url.pathname;
+const isActive = (href: string) => path === href || path.startsWith(href + '/');
+---
+<nav class="nav" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="/" class="nav-brand" aria-label="Stryda home">
+      <Logo size={20} />
+      <span class="nav-wordmark">stryda</span>
+    </a>
+
+    <ul class="nav-links">
+      {links.map((l) => (
+        <li>
+          <a
+            href={l.href}
+            class:list={['nav-link', { 'nav-link-active': isActive(l.href) }]}
+            aria-current={isActive(l.href) ? 'page' : undefined}
+          >
+            {l.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <div class="nav-cta">
+      <a href="/demo" class="btn nav-btn">Request a demo</a>
+    </div>
+
+    <button class="nav-burger" aria-label="Open menu" aria-expanded="false" data-nav-burger>
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="nav-mobile" data-nav-mobile hidden>
+    <div class="container">
+      {links.map((l) => (
+        <a href={l.href} class="nav-mobile-link">{l.label}</a>
+      ))}
+      <a href="/demo" class="btn nav-mobile-cta">Request a demo</a>
+    </div>
+  </div>
+</nav>
+<div class="nav-spacer"></div>
+
+<style>
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background: var(--c-bg);
+    border-bottom: 1px solid var(--c-line);
+  }
+  .nav-inner {
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: var(--s-6);
+  }
+  .nav-brand {
+    display: inline-flex; align-items: center; gap: 10px;
+    color: var(--c-fg);
+  }
+  .nav-wordmark {
+    font-family: var(--t-sans);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    color: var(--c-fg);
+  }
+  .nav-links {
+    list-style: none; margin: 0; padding: 0;
+    display: none; align-items: center; gap: var(--s-7);
+  }
+  .nav-link {
+    font-size: 13px;
+    color: var(--c-fg-1);
+    transition: color 0.18s ease;
+    padding: 6px 0;
+  }
+  .nav-link:hover, .nav-link-active { color: var(--c-fg); }
+
+  .nav-cta { display: none; }
+  .nav-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .nav-burger {
+    display: flex; flex-direction: column; justify-content: center; gap: 4px;
+    width: 36px; height: 36px;
+    background: transparent; border: 0; padding: 8px;
+  }
+  .nav-burger span {
+    display: block; width: 100%; height: 1px;
+    background: var(--c-fg);
+  }
+
+  .nav-mobile {
+    border-top: 1px solid var(--c-line);
+    background: var(--c-bg);
+    padding: var(--s-5) 0 var(--s-6);
+  }
+  .nav-mobile[hidden] { display: none; }
+  .nav-mobile > .container { display: flex; flex-direction: column; }
+  .nav-mobile-link {
+    font-family: var(--t-sans);
+    font-size: 14px;
+    color: var(--c-fg-1);
+    padding: 14px 0;
+    border-bottom: 1px solid var(--c-line);
+  }
+  .nav-mobile-link:hover { color: var(--c-fg); }
+  .nav-mobile-cta {
+    margin-top: var(--s-5);
+    justify-content: center;
+  }
+
+  .nav-spacer { height: 64px; }
+
+  @media (min-width: 880px) {
+    .nav-links, .nav-cta { display: flex; }
+    .nav-burger { display: none; }
+    .nav-mobile { display: none !important; }
+  }
+</style>
+
+<script>
+  const burger = document.querySelector<HTMLButtonElement>('[data-nav-burger]');
+  const mobile = document.querySelector<HTMLElement>('[data-nav-mobile]');
+  if (burger && mobile) {
+    burger.addEventListener('click', () => {
+      const open = !mobile.hidden;
+      mobile.hidden = open;
+      burger.setAttribute('aria-expanded', String(!open));
+    });
+  }
+</script>

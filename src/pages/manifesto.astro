@@ -1,0 +1,199 @@
+---
+/**
+ * /manifesto — UNLISTED. Share-by-link only.
+ *
+ * Not linked from anywhere on the site. Not in the sitemap (filtered in
+ * astro.config.mjs). Disallowed in robots.txt. Self-contained: a reader
+ * who never opens /pitch should still understand the worldview, the
+ * problem, and the wedge.
+ *
+ * Renders without the shared Nav/Footer (Base.astro `unlisted={true}`)
+ * so the artifact reads as standalone when shared.
+ */
+import Base from '../layouts/Base.astro';
+import Logo from '../components/Logo.astro';
+---
+<Base
+  title="Manifesto — Stryda"
+  description="Why Stryda exists, what we believe, and the deal we'd make with the boutique sell-side world."
+  unlisted={true}
+>
+  <div class="art-shell">
+    <header class="art-head">
+      <a href="/" class="art-brand" aria-label="Stryda home">
+        <Logo size={28} />
+        <span class="art-wordmark">stryda</span>
+      </a>
+      <span class="art-meta">Manifesto · 2026</span>
+    </header>
+
+    <article class="art" data-reveal data-reveal-static>
+      <p class="eyebrow">A note from the founders</p>
+      <h1 class="h-display-1 art-h1">There are forty hours of dead work inside every sell-side <i>mandate.</i></h1>
+      <p class="art-lede">
+        Most of it isn't judgment. It's transcription, normalization, drafting, list-building. The judgment work — strategic positioning, story shaping, buyer psychology — is what makes a banker. The mechanical work is what makes them tired.
+      </p>
+
+      <hr class="art-rule" />
+
+      <h2 class="art-h2">The boutique is the most undertooled team in finance.</h2>
+      <p>
+        A bulge-bracket associate has internal AI tools, a research desk, a database team, a graphics team. A partner at a boutique has an associate. Maybe two. The associate has Excel, Word, a stack of prior CIMs they're trying not to copy, and the rest of the night.
+      </p>
+      <p>
+        This isn't a small population. There are thousands of boutique sell-side advisors and search funds globally, doing the bulk of lower-middle-market M&amp;A. They run real mandates, take real fees, and ship work that's good enough to win — but they ship it the hard way.
+      </p>
+
+      <h2 class="art-h2">AI does not solve this. Workflow does.</h2>
+      <p>
+        Foundation models cleared the bar in 2024 for summarizing a 10-K. They have not cleared the bar for shipping a forty-page CIM with consistent voice, sourced figures, and a financial workbook a senior banker will sign. The gap between "can write a paragraph" and "can ship a deliverable" is the gap a workflow product closes.
+      </p>
+      <p>
+        Stryda is not a chatbot wrapped around Claude. Stryda is the integration of ingestion, extraction, normalization, drafting, and export — with the model layer as one component, interchangeable, replaceable. The product is the workflow. The model is just the engine.
+      </p>
+
+      <h2 class="art-h2">The artifact is the product.</h2>
+      <p>
+        Bankers don't buy chat interfaces. They buy a Word document, an Excel workbook, a PDF teaser. Every output Stryda ships is clean — no markdown, no LLM artifacts, edit-ready in the format the team already uses. The chat interface is a developer convenience. The artifact is what closes the deal.
+      </p>
+
+      <h2 class="art-h2">Every number traces back.</h2>
+      <p>
+        A banker who can't defend a number in a diligence call doesn't trust the tool. So every figure in every Stryda output is one click away from its source — the page in the PDF, the cell in the workbook. We do not ship black-box numbers. We do not ship "trust the model." If we can't audit it, we don't ship it.
+      </p>
+
+      <h2 class="art-h2">No cross-tenant anything.</h2>
+      <p>
+        Sell-side data is the most sensitive document set in a banker's filing cabinet. Stryda runs each firm in its own tenant scope, with retrieval filtered by tenant before any matching, encryption at rest and in transit, audit logging on every action. Your deal data does not train our model. Your deal data does not show up in retrieval for another firm. The boundary is enforced in the architecture, not the policy doc.
+      </p>
+
+      <h2 class="art-h2">Bottom-up, not enterprise theatre.</h2>
+      <p>
+        We do not sell to procurement. We sell to a five-person team running real mandates that need to ship this week. Free for ninety days. Two real mandates. The associate decides if it ships, not the CCO. If it doesn't earn its keep, we want to know — and we want you to walk.
+      </p>
+
+      <hr class="art-rule" />
+
+      <h2 class="art-h2">The deal we'll make with you.</h2>
+      <p>
+        We will not waste your associate's time. We will not bury our security architecture under marketing. We will ship a draft CIM, teaser, normalized financials, and ranked buyer list in under sixty minutes from one ingestion pass. We will sit with you through the first two mandates. We will fix what breaks before you ask.
+      </p>
+      <p>
+        In return: tell us when we're wrong. Tell us what's missing. Run real deals through the system, not curated test cases. Help us build the product the boutique sell-side world deserves.
+      </p>
+
+      <p class="art-sign">— The Stryda team</p>
+
+      <div class="art-cta">
+        <a href="/demo" class="btn">Request a demo</a>
+        <a href="/" class="btn-ghost btn">Back to stryda.ai</a>
+      </div>
+    </article>
+
+    <footer class="art-foot">
+      <span>© 2026 Stryda Capital, Inc.</span>
+      <span>Share by link · not indexed</span>
+    </footer>
+  </div>
+</Base>
+
+<style>
+  .art-shell {
+    min-height: 100vh;
+    background: var(--c-bg);
+    color: var(--c-fg);
+    padding: clamp(32px, 4vw, 64px) 0 clamp(64px, 6vw, 112px);
+  }
+  .art-head {
+    max-width: 720px;
+    margin: 0 auto var(--s-11);
+    padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .art-brand {
+    display: inline-flex; align-items: center; gap: var(--s-2);
+    color: var(--c-fg);
+  }
+  .art-wordmark {
+    font-family: var(--t-mono); font-size: 14px; font-weight: 500;
+    color: var(--c-fg);
+  }
+  .art-meta {
+    font-family: var(--t-mono); font-size: 11px;
+    letter-spacing: var(--t-track-wide); text-transform: uppercase;
+    color: var(--c-fg-2);
+  }
+
+  .art {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .art-h1 {
+    margin-top: var(--s-4);
+    max-width: 16ch;
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 1.0;
+  }
+  .art-lede {
+    font-family: var(--t-serif);
+    font-size: clamp(22px, 2.4vw, 28px);
+    line-height: 1.4;
+    color: var(--c-fg-1);
+    margin: var(--s-9) 0 0;
+    max-width: 36ch;
+    font-style: italic;
+  }
+  .art-rule {
+    border: 0;
+    border-top: 1px solid var(--c-line);
+    margin: var(--s-11) 0;
+  }
+
+  .art-h2 {
+    font-family: var(--t-serif);
+    font-size: clamp(26px, 3vw, 34px);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.018em;
+    color: var(--c-fg);
+    margin: var(--s-11) 0 var(--s-5);
+    max-width: 26ch;
+  }
+  .art p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--c-fg-1);
+    margin: 0 0 var(--s-5);
+    max-width: 64ch;
+  }
+  .art p strong, .art p em {
+    color: var(--c-fg);
+  }
+
+  .art-sign {
+    font-family: var(--t-serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--c-fg);
+    margin-top: var(--s-9);
+  }
+
+  .art-cta {
+    display: flex; flex-wrap: wrap; gap: var(--s-3);
+    margin-top: var(--s-9);
+    padding-top: var(--s-7);
+    border-top: 1px solid var(--c-line);
+  }
+
+  .art-foot {
+    max-width: 720px;
+    margin: var(--s-12) auto 0;
+    padding: var(--s-7) 24px 0;
+    border-top: 1px solid var(--c-line);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--t-mono); font-size: 11px;
+    letter-spacing: 0.02em;
+    color: var(--c-fg-2);
+  }
+</style>

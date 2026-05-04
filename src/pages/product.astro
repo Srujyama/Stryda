@@ -1,0 +1,203 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Product — Stryda"
+  description="From document upload to draft CIM, teaser, normalized financials, and ranked buyer list. The full workflow for sell-side M&A advisors."
+>
+  <section class="sec-first">
+    <div class="container">
+      <p class="eyebrow">Product</p>
+      <h1 class="h-1" style="margin-top: var(--s-4); max-width: 18ch;">
+        Upload the deal. Ship the artifacts.
+      </h1>
+      <p style="margin-top: var(--s-7); font-size: 18px; max-width: 60ch;">
+        A single ingestion pass becomes four production-grade outputs your team can edit, iterate on, and send to clients. No chatbot in the middle. No copy-paste. The model layer is interchangeable; the workflow is the product.
+      </p>
+    </div>
+  </section>
+
+  <!-- Pipeline -->
+  <section class="sec" id="pipeline">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <p class="eyebrow">Pipeline</p>
+          <h2 class="h-2" style="margin-top: var(--s-4); max-width: 14ch;">
+            Documents in, artifacts out.
+          </h2>
+        </div>
+        <div class="stack">
+          <p>Every mandate goes through the same four stages. Steps one and two run on every upload. Steps three and four are deterministic once the structured data is captured.</p>
+        </div>
+      </div>
+
+      <table class="tbl pipeline-tbl">
+        <thead>
+          <tr>
+            <th>Stage</th>
+            <th>Input</th>
+            <th>Output</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">01 &middot; Upload</th>
+            <td>P&amp;L, balance sheet, cash flow, management deck, prior CIM, tax returns</td>
+            <td>Encrypted object storage, per-deal scope</td>
+          </tr>
+          <tr>
+            <th scope="row">02 &middot; Extract</th>
+            <td>Source documents (PDF, XLSX, DOCX, PPTX)</td>
+            <td>Tables, line items, periods &mdash; each tagged with source page or cell, plus extraction confidence</td>
+          </tr>
+          <tr>
+            <th scope="row">03 &middot; Normalize</th>
+            <td>Extracted structured data</td>
+            <td>Standardized P&amp;L, balance sheet, cash flow. Add-back candidates flagged. EBITDA bridge.</td>
+          </tr>
+          <tr>
+            <th scope="row">04 &middot; Draft</th>
+            <td>Normalized financials, ingested narrative material</td>
+            <td>CIM, teaser, financial workbook, ranked buyer list</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- M.01 CIM -->
+  <section class="sec" id="cim">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <p class="eyebrow">M.01 &middot; CIM drafting</p>
+          <h2 class="h-2" style="margin-top: var(--s-4); max-width: 14ch;">
+            A draft CIM by lunch.
+          </h2>
+        </div>
+        <div class="stack">
+          <p>Forty to sixty pages, structured into the nine sections every boutique CIM uses. Each section is generated independently, retrieves over the source documents, and writes to an editable Word doc with proper formatting. Regenerate any section in isolation without touching the rest.</p>
+          <p>The quality bar: an associate spends two to four hours editing, not forty hours writing. The senior banker still owns voice and emphasis. The first draft is no longer the bottleneck.</p>
+        </div>
+      </div>
+
+      <table class="tbl cim-tbl">
+        <thead>
+          <tr>
+            <th>Section</th>
+            <th>Source material</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">01 &middot; Executive summary</th><td>Whole-document RAG, written last, written tight</td></tr>
+          <tr><th scope="row">02 &middot; Investment highlights</th><td>Management deck, customer concentration, financials</td></tr>
+          <tr><th scope="row">03 &middot; Company overview</th><td>Management deck, prior pitch material, website if provided</td></tr>
+          <tr><th scope="row">04 &middot; Industry overview</th><td>Sector taxonomy, third-party industry references when cited</td></tr>
+          <tr><th scope="row">05 &middot; Financial overview</th><td>Normalized financials, add-back schedule, EBITDA bridge</td></tr>
+          <tr><th scope="row">06 &middot; Management</th><td>Org chart, bios, tenure data</td></tr>
+          <tr><th scope="row">07 &middot; Growth opportunities</th><td>Management thesis, sector context, named opportunities</td></tr>
+          <tr><th scope="row">08 &middot; Transaction considerations</th><td>Seller motivation, structure, timeline</td></tr>
+          <tr><th scope="row">09 &middot; Appendix</th><td>Detailed financials, customer concentration tables, comps if requested</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- M.02 Teaser -->
+  <section class="sec" id="teaser">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <p class="eyebrow">M.02 &middot; Teaser</p>
+          <h2 class="h-2" style="margin-top: var(--s-4); max-width: 14ch;">
+            Anonymized in one pass.
+          </h2>
+        </div>
+        <div class="stack">
+          <p>One- to two-page anonymized teaser, generated from the same ingested documents. Identifying details &mdash; company name, geography, named customers &mdash; are scrubbed by regex first and an LLM scrubbing pass second. The output is editable, brand-aware, and exportable as Word or PDF.</p>
+          <p>A pre-send approver checklist runs a final identifier sweep so nothing leaves the system that shouldn't.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- M.03 Financials -->
+  <section class="sec" id="financials">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <p class="eyebrow">M.03 &middot; Financial normalization</p>
+          <h2 class="h-2" style="margin-top: var(--s-4); max-width: 14ch;">
+            Every number traces back.
+          </h2>
+        </div>
+        <div class="stack">
+          <p>P&amp;L, balance sheet, and cash flow normalized into a standard schema across three to five years. Add-back candidates &mdash; owner comp, one-time items, non-recurring expenses &mdash; flagged for review with the source line that triggered the flag.</p>
+          <p>Click any figure in any output and jump straight to the page of the source PDF or the cell of the source workbook. No black box. Bankers do not adopt tools they cannot defend in a diligence call.</p>
+        </div>
+      </div>
+
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th>Schedule</th>
+            <th>Standard fields</th>
+            <th>Source-linked</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">P&amp;L</th><td>Revenue, COGS, gross profit, opex, EBITDA, depreciation, EBIT, interest, tax, net income</td><td>Yes</td></tr>
+          <tr><th scope="row">Balance sheet</th><td>Cash, receivables, inventory, fixed assets, payables, debt, equity</td><td>Yes</td></tr>
+          <tr><th scope="row">Cash flow</th><td>CFO, capex, working capital change, FCF, FCF conversion</td><td>Yes</td></tr>
+          <tr><th scope="row">EBITDA bridge</th><td>Reported &rarr; adjusted, with add-backs flagged for review</td><td>Yes</td></tr>
+          <tr><th scope="row">Standard metrics</th><td>Revenue growth, gross margin, EBITDA margin, capex intensity, working capital intensity</td><td>Derived</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- M.04 Buyers -->
+  <section class="sec" id="buyers">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <p class="eyebrow">M.04 &middot; Buyer list</p>
+          <h2 class="h-2" style="margin-top: var(--s-4); max-width: 14ch;">
+            Ranked, with rationale.
+          </h2>
+        </div>
+        <div class="stack">
+          <p>Fifty to one hundred fifty named buyers across PE, strategics, family offices, and search funds. Hybrid retrieval &mdash; semantic match plus structured filters on industry, size, and geography &mdash; followed by an re-ranking pass that produces a one-sentence rationale per buyer tied to the deal profile.</p>
+          <p>Output as Excel with rationale column, plus a Word version formatted for client delivery. The buyer database is curated, not scraped &mdash; quality matters more than count.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing CTA -->
+  <section class="sec">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <p class="eyebrow">Next</p>
+          <h2 class="h-2" style="margin-top: var(--s-4); max-width: 14ch;">
+            See it on your mandate.
+          </h2>
+        </div>
+        <div class="stack">
+          <p>Pick a deal you're working. Bring the documents. We will run a live ingestion and walk you through the four outputs in under an hour.</p>
+          <p style="margin-top: var(--s-7);">
+            <a href="/demo" class="btn">Request a demo</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .pipeline-tbl, .cim-tbl { margin-top: var(--s-8); }
+  .pipeline-tbl tbody th { width: 22%; }
+  .cim-tbl tbody th { width: 36%; }
+</style>

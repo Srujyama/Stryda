@@ -1,0 +1,318 @@
+/* Stryda design tokens.
+   See /docs/DESIGN.md — pure black canvas, two type families,
+   one accent (white), no surface variants, almost no motion. */
+
+:root {
+  /* Color */
+  --c-bg:      #000000;
+  --c-fg:      #FFFFFF;
+  --c-fg-1:    #B7B7B7;
+  --c-fg-2:    #7A7A7A;
+  --c-fg-3:    #4A4A4A;
+  --c-line:    rgba(255, 255, 255, 0.10);
+  --c-line-1:  rgba(255, 255, 255, 0.18);
+  --c-accent:  #FFFFFF;
+
+  /* Type */
+  --t-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --t-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --t-h1:   clamp(40px, 5vw, 72px);
+  --t-h2:   clamp(28px, 3.2vw, 44px);
+  --t-h3:   clamp(20px, 2vw, 24px);
+  --t-body: 16px;
+  --t-small: 14px;
+  --t-eyebrow: 11px;
+
+  /* Spacing */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --s-9: 96px;
+  --s-10: 128px;
+
+  /* Container */
+  --w: 1200px;
+}
+
+/* ── Reset ───────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { background: var(--c-bg); color-scheme: dark; }
+body {
+  background: var(--c-bg);
+  color: var(--c-fg-1);
+  font-family: var(--t-sans);
+  font-size: var(--t-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  font-feature-settings: 'ss01', 'cv11';
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+hr { border: 0; border-top: 1px solid var(--c-line); margin: 0; }
+
+::selection { background: var(--c-fg); color: var(--c-bg); }
+
+:focus-visible {
+  outline: 1px solid var(--c-fg);
+  outline-offset: 3px;
+}
+
+/* ── Typography ──────────────────────────────────────────────────────── */
+.h-1 {
+  font-family: var(--t-sans);
+  font-size: var(--t-h1);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  color: var(--c-fg);
+  margin: 0;
+}
+.h-2 {
+  font-family: var(--t-sans);
+  font-size: var(--t-h2);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.018em;
+  color: var(--c-fg);
+  margin: 0;
+}
+.h-3 {
+  font-family: var(--t-sans);
+  font-size: var(--t-h3);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--c-fg);
+  margin: 0;
+}
+
+.eyebrow {
+  font-family: var(--t-mono);
+  font-size: var(--t-eyebrow);
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-fg-2);
+  display: inline-block;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  max-width: 64ch;
+  color: var(--c-fg-1);
+}
+p strong { color: var(--c-fg); font-weight: 500; }
+p em { color: var(--c-fg); font-style: normal; }
+
+/* ── Container ───────────────────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--w);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+@media (min-width: 720px)  { .container { padding: 0 40px; } }
+@media (min-width: 1080px) { .container { padding: 0 64px; } }
+
+/* ── Section rhythm ──────────────────────────────────────────────────── */
+.sec {
+  padding: var(--s-9) 0;
+  border-top: 1px solid var(--c-line);
+}
+.sec-first {
+  padding: clamp(96px, 12vw, 160px) 0 var(--s-9);
+  border-top: 0;
+}
+
+/* ── Buttons (only two) ──────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: 12px 24px;
+  border: 1px solid var(--c-fg);
+  border-radius: 1px;
+  background: var(--c-fg);
+  color: var(--c-bg);
+  font-family: var(--t-sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+  white-space: nowrap;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease;
+}
+.btn:hover {
+  background: transparent;
+  color: var(--c-fg);
+}
+
+.btn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--c-line-1);
+  color: var(--c-fg);
+  font-size: 14px;
+  font-weight: 500;
+  padding-bottom: 2px;
+  transition: border-color 0.18s ease;
+}
+.btn-link:hover { border-bottom-color: var(--c-fg); }
+.btn-link::after { content: "→"; }
+
+/* ── Tables ──────────────────────────────────────────────────────────── */
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--t-small);
+}
+.tbl th, .tbl td {
+  text-align: left;
+  padding: var(--s-4) 0;
+  border-top: 1px solid var(--c-line);
+  vertical-align: top;
+}
+.tbl tr:last-child td { border-bottom: 1px solid var(--c-line); }
+.tbl thead th {
+  font-family: var(--t-mono);
+  font-size: var(--t-eyebrow);
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-fg-2);
+  border-top: 1px solid var(--c-line-1);
+  border-bottom: 1px solid var(--c-line-1);
+}
+.tbl tbody th {
+  font-weight: 500;
+  color: var(--c-fg);
+  padding-right: var(--s-6);
+  width: 30%;
+  font-family: var(--t-sans);
+  font-size: var(--t-body);
+  letter-spacing: normal;
+  text-transform: none;
+}
+.tbl td { color: var(--c-fg-1); padding-right: var(--s-6); }
+.tbl td:last-child { padding-right: 0; }
+
+/* Em-dash list — used in place of bullet lists everywhere */
+.dash-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+.dash-list li {
+  position: relative;
+  padding-left: 28px;
+  color: var(--c-fg-1);
+  font-size: var(--t-body);
+  line-height: 1.65;
+  max-width: 64ch;
+}
+.dash-list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--c-fg-2);
+}
+.dash-list li strong { color: var(--c-fg); font-weight: 500; }
+
+/* Two-column layout for sections that compare two things */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-7);
+}
+@media (min-width: 880px) {
+  .two-col { grid-template-columns: 1fr 1fr; gap: var(--s-9); }
+}
+
+/* Stack utility for prose blocks */
+.stack > * + * { margin-top: var(--s-4); }
+.stack-lg > * + * { margin-top: var(--s-7); }
+
+/* Forms */
+.field { display: block; }
+.field label {
+  display: block;
+  font-family: var(--t-mono);
+  font-size: var(--t-eyebrow);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-fg-2);
+  margin-bottom: var(--s-2);
+}
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  padding: 12px 14px;
+  background: transparent;
+  border: 1px solid var(--c-line-1);
+  border-radius: 2px;
+  font-family: var(--t-sans);
+  font-size: var(--t-small);
+  color: var(--c-fg);
+  transition: border-color 0.18s ease;
+}
+.field input::placeholder,
+.field textarea::placeholder { color: var(--c-fg-3); }
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--c-fg);
+}
+.field textarea { resize: vertical; min-height: 140px; }
+.field .hint {
+  display: block;
+  font-size: 12px;
+  color: var(--c-fg-2);
+  margin-top: 6px;
+}
+
+/* Visually hidden */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Anchor offset for sticky nav */
+:where(h1, h2, h3, section)[id] {
+  scroll-margin-top: 96px;
+}
+
+/* Reduced motion — there's almost nothing to suppress, but be explicit */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

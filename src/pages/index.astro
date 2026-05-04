@@ -1,0 +1,183 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Stryda — The AI deal OS for sell-side M&A"
+  description="Stryda turns a sell-side mandate into a draft CIM, teaser, normalized financials, and ranked buyer list in under sixty minutes. Built for boutique investment banks and search funds."
+>
+  <!-- ─── Hero ─────────────────────────────────────────────────────── -->
+  <section class="sec-first">
+    <div class="container">
+      <div class="hero">
+        <h1 class="h-1 hero-h1">
+          The AI deal OS for sell-side M&amp;A.
+        </h1>
+        <p class="hero-lede">
+          Stryda turns the documents of a sell-side mandate &mdash; financials, management deck, prior CIM &mdash; into a draft CIM, teaser, normalized statements, and a ranked buyer list. For boutique investment banks and search funds that don't have time to build their own AI stack.
+        </p>
+        <div class="hero-cta">
+          <a href="/demo" class="btn">Request a demo</a>
+          <a href="/product" class="btn-link">See the product</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Problem ──────────────────────────────────────────────────── -->
+  <section class="sec">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <p class="eyebrow">The problem</p>
+          <h2 class="h-2" style="margin-top: var(--s-4); max-width: 16ch;">
+            Forty hours of blank-page work, per mandate.
+          </h2>
+        </div>
+        <div class="stack">
+          <p>A boutique sell-side associate gets a new mandate on Monday. By Friday they need a teaser. By month-end, a CIM. The financials still need to be normalized. The buyer list still needs to be built. The first version of every output is written from a blank page.</p>
+          <p>Bulge brackets have internal AI tools, research desks, database teams, graphics teams. Boutiques have associates with Excel, Word, a stack of prior CIMs they're trying not to copy, and the rest of the night. The work is mechanical. The tools are not.</p>
+          <p>Stryda is the tool. We sit between the documents the seller hands you and the deliverables your client expects, and we make the first eighty percent disappear.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── What ships ───────────────────────────────────────────────── -->
+  <section class="sec" id="what-ships">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <p class="eyebrow">What ships</p>
+          <h2 class="h-2" style="margin-top: var(--s-4); max-width: 16ch;">
+            Four outputs from one ingestion pass.
+          </h2>
+        </div>
+        <div class="stack">
+          <p>Upload financials, a management deck, prior pitch material, customer concentration data. A single ingestion produces four edit-ready artifacts in under sixty minutes.</p>
+          <p><a href="/product" class="btn-link">Full product tour</a></p>
+        </div>
+      </div>
+
+      <table class="tbl modules-tbl">
+        <thead>
+          <tr>
+            <th>Output</th>
+            <th>What it is</th>
+            <th>Format</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Draft CIM</th>
+            <td>Forty to sixty pages, sectioned: executive summary, investment highlights, company overview, industry, financials, management, growth, transaction. Section-by-section regeneration.</td>
+            <td>.docx</td>
+          </tr>
+          <tr>
+            <th scope="row">Teaser</th>
+            <td>One- to two-page anonymized version. Identifying details scrubbed by regex plus an LLM scrubbing pass. Brand-aware template.</td>
+            <td>.docx, .pdf</td>
+          </tr>
+          <tr>
+            <th scope="row">Normalized financials</th>
+            <td>Three to five years of P&amp;L, balance sheet, cash flow into a standard schema. Add-backs flagged for review. Every figure traceable to its source PDF or workbook.</td>
+            <td>.xlsx</td>
+          </tr>
+          <tr>
+            <th scope="row">Buyer list</th>
+            <td>Fifty to one hundred fifty named buyers across PE, strategics, family offices, and search funds &mdash; each ranked, each with a one-sentence rationale tied to the deal profile.</td>
+            <td>.xlsx, .docx</td>
+          </tr>
+          <tr>
+            <th scope="row">Workspace</th>
+            <td>Two to ten seats per boutique. Per-deal access control. Audit log on every document, every output, every download. Designed for SOC 2 from week one.</td>
+            <td>Web</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ─── How we think ─────────────────────────────────────────────── -->
+  <section class="sec" id="principles">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <p class="eyebrow">How we think</p>
+          <h2 class="h-2" style="margin-top: var(--s-4); max-width: 16ch;">
+            A copilot is only as good as the artifact it ships.
+          </h2>
+        </div>
+        <ol class="dash-list">
+          <li><strong>The output is the product.</strong> The user does not buy a chat interface. They buy a Word document, an Excel workbook, a PDF teaser. Every output ships clean, in the format the banker already uses.</li>
+          <li><strong>Every number traces back.</strong> Click any figure in any output and jump to the page of the source PDF or the cell of the source workbook it came from. Bankers do not adopt tools they cannot defend in a diligence call.</li>
+          <li><strong>Boutique-first, not enterprise-first.</strong> We do not sell to procurement. We sell to a five-person team running real mandates that need to ship this week. The associate decides; the partner adopts; the CCO follows.</li>
+          <li><strong>Per-tenant by default.</strong> No deal data ever leaves your tenant boundary. No shared training pool. No cross-deal leakage. SOC 2 path on the architecture roadmap from week one, not retrofitted at the first enterprise close.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Why now ──────────────────────────────────────────────────── -->
+  <section class="sec">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <p class="eyebrow">Why now</p>
+          <h2 class="h-2" style="margin-top: var(--s-4); max-width: 18ch;">
+            Foundation models cleared the bar. The workflow didn't.
+          </h2>
+        </div>
+        <div class="stack">
+          <p>In 2026, an associate at any boutique can paste a 10-K into Claude and get a passable summary. That is not the bottleneck. The bottleneck is the forty-page CIM with consistent voice, the buyer list with named contacts, the financial workbook a senior banker will sign. Every one of those artifacts requires a workflow, not a chatbot.</p>
+          <p>Stryda gets better when the model layer gets better. The workflow integration, the document-format awareness, the citation contracts, the export format that fits a banker's muscle memory &mdash; that is the part the model never sees, and that is the part we own.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Close ─────────────────────────────────────────────────────── -->
+  <section class="sec" id="close">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <p class="eyebrow">Design partners</p>
+          <h2 class="h-2" style="margin-top: var(--s-4); max-width: 14ch;">
+            Ten boutiques. Ninety days.
+          </h2>
+        </div>
+        <div class="stack">
+          <p>Free for ninety days. One-page agreement. Two real mandates. A weekly half-hour feedback call. We sit next to your associates while they use it. If it works, you convert at $2&ndash;3k per month after day ninety. If it doesn't, you walk and we learn.</p>
+          <p style="margin-top: var(--s-7);">
+            <a href="/demo" class="btn">Request a demo</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero { max-width: 920px; }
+  .hero-h1 { max-width: 14ch; }
+  .hero-lede {
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.5;
+    color: var(--c-fg-1);
+    margin-top: var(--s-7);
+    max-width: 56ch;
+  }
+  .hero-cta {
+    margin-top: var(--s-8);
+    display: flex; flex-wrap: wrap; gap: var(--s-5);
+    align-items: center;
+  }
+
+  .modules-tbl { margin-top: var(--s-8); }
+  .modules-tbl td:last-child {
+    font-family: var(--t-mono);
+    font-size: 13px;
+    color: var(--c-fg-2);
+    white-space: nowrap;
+    width: 16%;
+  }
+</style>

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /pitch
+Disallow: /manifesto
+
+Sitemap: https://stryda.ai/sitemap-index.xml

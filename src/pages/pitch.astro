@@ -1,0 +1,409 @@
+---
+/**
+ * /pitch — UNLISTED. Share-by-link only.
+ *
+ * Long-form investor pitch artifact. Not linked, not in sitemap, robots
+ * disallow + meta noindex. Renders without site Nav/Footer so it reads
+ * as a self-contained share asset.
+ */
+import Base from '../layouts/Base.astro';
+import Logo from '../components/Logo.astro';
+---
+<Base
+  title="Pitch — Stryda"
+  description="The investor pitch book: problem, market, product, GTM, and the round we're raising."
+  unlisted={true}
+>
+  <div class="art-shell">
+    <header class="art-head">
+      <a href="/" class="art-brand" aria-label="Stryda home">
+        <Logo size={28} />
+        <span class="art-wordmark">stryda</span>
+      </a>
+      <span class="art-meta">Pitch · 2026 · v1</span>
+    </header>
+
+    <article class="art">
+      <p class="eyebrow">Investor brief</p>
+      <h1 class="h-display-1 art-h1">The AI deal OS for sell-side <i>M&amp;A.</i></h1>
+      <p class="art-lede">
+        Stryda turns the documents of a sell-side mandate into a draft CIM, teaser, normalized financials, and ranked buyer list in under sixty minutes — for the boutique investment banks and search funds that run lower-middle-market deals.
+      </p>
+
+      <div class="tldr" data-reveal data-reveal-static>
+        <div>
+          <span class="tldr-k">Wedge</span>
+          <span class="tldr-v">Workflow copilot for boutique sell-side</span>
+        </div>
+        <div>
+          <span class="tldr-k">ICP</span>
+          <span class="tldr-v">5–30 person banking teams · sub-$500M revenue mandates · search funds</span>
+        </div>
+        <div>
+          <span class="tldr-k">Stage</span>
+          <span class="tldr-v">Closed beta · onboarding ten boutiques in cohorts of three</span>
+        </div>
+        <div>
+          <span class="tldr-k">Ask</span>
+          <span class="tldr-v">Seed round, Q3</span>
+        </div>
+      </div>
+
+      <hr class="art-rule" />
+
+      <!-- §01 Problem -->
+      <section class="seg">
+        <p class="eyebrow">§01 · The problem</p>
+        <h2 class="art-h2">Forty hours of dead work, per mandate.</h2>
+        <p>
+          A boutique sell-side associate gets a new mandate on Monday. By Friday they need a teaser. By month-end, a CIM. The financials still need to be normalized. The buyer list still needs to be built. The first version of every output is written from a blank page.
+        </p>
+        <p>
+          Bulge brackets have internal AI tools, research desks, database teams, graphics teams. Boutiques have an associate with Excel, Word, a stack of prior CIMs they're trying not to copy, and the rest of the night. The work is mechanical. The tools are not.
+        </p>
+        <div class="metrics-row">
+          <div class="metric-card">
+            <div class="m-v">~40h</div>
+            <div class="m-l">CIM drafting per mandate, today</div>
+          </div>
+          <div class="metric-card">
+            <div class="m-v">~12h</div>
+            <div class="m-l">Buyer list research per mandate</div>
+          </div>
+          <div class="metric-card">
+            <div class="m-v">~8h</div>
+            <div class="m-l">Financial normalization + add-back analysis</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- §02 Market -->
+      <section class="seg">
+        <p class="eyebrow">§02 · Market</p>
+        <h2 class="art-h2">Thousands of teams. Almost no tooling.</h2>
+        <p>
+          The lower-middle-market sell-side advisory world is fragmented and global. Thousands of boutique investment banks, M&amp;A advisory shops, and search funds run real mandates and take real fees. They are too small for bespoke internal tooling and too sophisticated to be served by generic AI products.
+        </p>
+        <p>
+          The total addressable market for a workflow copilot priced at $2–3k/month per team is meaningful by itself. The strategic upside — what the workflow product enables once trust is earned — is the part we are not ready to talk about externally.
+        </p>
+      </section>
+
+      <!-- §03 Product -->
+      <section class="seg">
+        <p class="eyebrow">§03 · Product</p>
+        <h2 class="art-h2">Four outputs. One ingestion pass.</h2>
+        <p>
+          A team uploads the documents of a mandate — financials, management deck, prior CIM. A single ingestion pass produces:
+        </p>
+        <ol class="ord-list">
+          <li><strong>Draft CIM.</strong> Forty to sixty pages, sectioned (Executive Summary → Appendix), Word-native, regenerable section by section.</li>
+          <li><strong>Teaser.</strong> One- to two-page anonymized version with a two-pass scrub. Word + PDF.</li>
+          <li><strong>Normalized financials.</strong> P&amp;L, balance sheet, cash flow into a standard schema. Add-backs flagged. Excel paste-ready. Every figure linked back to its source.</li>
+          <li><strong>Buyer list.</strong> Fifty to one hundred fifty named buyers across PE, strategics, family offices, search funds — ranked, with one-sentence rationale per buyer.</li>
+        </ol>
+        <p>
+          Quality bar: an associate spends two to four hours editing the CIM, not forty hours writing it. The senior banker still owns voice and emphasis. The first draft is no longer the bottleneck.
+        </p>
+      </section>
+
+      <!-- §04 Why now -->
+      <section class="seg">
+        <p class="eyebrow">§04 · Why now</p>
+        <h2 class="art-h2">Foundation models cleared the bar. The workflow didn't.</h2>
+        <p>
+          In 2026, an associate at any boutique can paste a 10-K into Claude and get a passable summary. That is not the bottleneck. The bottleneck is the forty-page CIM with consistent voice, the buyer list with named contacts, the financial workbook a senior banker will sign. Every one of those artifacts requires a workflow — not a chatbot.
+        </p>
+        <p>
+          Stryda gets <em>better</em> when the model layer gets better — and our edge is the part the model never sees: the boutique-specific extraction logic, the document-format awareness, the citation contracts, the export format that fits a banker's muscle memory.
+        </p>
+      </section>
+
+      <!-- §05 GTM -->
+      <section class="seg">
+        <p class="eyebrow">§05 · GTM</p>
+        <h2 class="art-h2">Bottom-up, founder-led, design partners first.</h2>
+        <p>
+          Ten boutiques in cohorts of three. Ninety days free. Two real mandates. Weekly half-hour with the founding team. We sit next to associates while they use the product. We capture every breakage and every wish.
+        </p>
+        <p>
+          After day ninety: $2–3k a month per team. No procurement theatre. No SDRs. The associate decides; the partner adopts; the CCO follows. We are explicitly not selling to enterprise buyers in year one.
+        </p>
+        <div class="gtm-grid">
+          <div class="gtm">
+            <div class="gtm-k">Phase 1 · 0–6mo</div>
+            <div class="gtm-d">Ten boutiques. Three cohorts. Workflow product only. No marketplace narrative.</div>
+          </div>
+          <div class="gtm">
+            <div class="gtm-k">Phase 2 · 6–12mo</div>
+            <div class="gtm-d">Scale to fifty paying boutiques. Sector verticals. CRM integrations.</div>
+          </div>
+          <div class="gtm">
+            <div class="gtm-k">Phase 3 · 12mo+</div>
+            <div class="gtm-d">Strategic surface area we don't talk about externally.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- §06 Defensibility -->
+      <section class="seg">
+        <p class="eyebrow">§06 · Defensibility</p>
+        <h2 class="art-h2">Workflow, not model.</h2>
+        <p>
+          The model layer is interchangeable. The workflow is not. Our edge is the integration of ingestion, extraction, normalization, drafting, and export — and the per-output telemetry that compounds it deal by deal.
+        </p>
+        <ul class="def-list">
+          <li><strong>Defensibility:</strong> workflow integration + sector-specific extraction logic + per-output telemetry.</li>
+          <li><strong>Distribution:</strong> bottom-up adoption inside teams that lack procurement gates.</li>
+          <li><strong>Compliance:</strong> tenant-isolated, encrypted, audit-logged from week one. SOC 2 path on the calendar.</li>
+          <li><strong>Compounding:</strong> every banker edit is signal. Every regenerate is a labeled example.</li>
+        </ul>
+      </section>
+
+      <!-- §07 Team -->
+      <section class="seg">
+        <p class="eyebrow">§07 · Team</p>
+        <h2 class="art-h2">Founding team.</h2>
+        <p>
+          Small, technical, sell-side adjacent. We talk to bankers weekly. We ship features they ask for. We do not ship features they don't.
+        </p>
+      </section>
+
+      <!-- §08 Ask -->
+      <section class="seg">
+        <p class="eyebrow">§08 · The ask</p>
+        <h2 class="art-h2">Seed round, Q3.</h2>
+        <p>
+          We are raising a seed round to bring on the first two engineers and run the design-partner program for ninety days. If you back vertical AI for regulated workflows, we'd like to talk.
+        </p>
+        <div class="art-cta" style="margin-top: var(--s-7);">
+          <a href="mailto:bobbyzli@berkeley.edu" class="btn">Email founders</a>
+          <a href="/manifesto" class="btn-ghost btn">Read the manifesto</a>
+        </div>
+      </section>
+
+      <hr class="art-rule" />
+
+      <p class="art-fine">
+        This page is a share-by-link artifact. It is not linked from the public site, not in our sitemap, and not indexed. All figures on this page are illustrative. No information here constitutes an offer to sell securities.
+      </p>
+    </article>
+
+    <footer class="art-foot">
+      <span>© 2026 Stryda Capital, Inc.</span>
+      <span>Share by link · not indexed</span>
+    </footer>
+  </div>
+</Base>
+
+<style>
+  .art-shell {
+    min-height: 100vh;
+    background: var(--c-bg);
+    color: var(--c-fg);
+    padding: clamp(32px, 4vw, 64px) 0 clamp(64px, 6vw, 112px);
+  }
+  .art-head {
+    max-width: 760px;
+    margin: 0 auto var(--s-10);
+    padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .art-brand {
+    display: inline-flex; align-items: center; gap: var(--s-2);
+    color: var(--c-fg);
+  }
+  .art-wordmark {
+    font-family: var(--t-mono); font-size: 14px; font-weight: 500;
+    color: var(--c-fg);
+  }
+  .art-meta {
+    font-family: var(--t-mono); font-size: 11px;
+    letter-spacing: var(--t-track-wide); text-transform: uppercase;
+    color: var(--c-fg-2);
+  }
+
+  .art {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .art-h1 {
+    margin-top: var(--s-4);
+    max-width: 14ch;
+    font-size: clamp(44px, 6.4vw, 84px);
+    line-height: 1.0;
+  }
+  .art-lede {
+    font-family: var(--t-serif);
+    font-size: clamp(20px, 2.2vw, 26px);
+    line-height: 1.4;
+    color: var(--c-fg-1);
+    margin: var(--s-7) 0 0;
+    max-width: 38ch;
+    font-style: italic;
+  }
+  .art-rule {
+    border: 0;
+    border-top: 1px solid var(--c-line);
+    margin: var(--s-11) 0;
+  }
+
+  .tldr {
+    margin-top: var(--s-9);
+    background: var(--c-bg-1);
+    border: 1px solid var(--c-line);
+    border-radius: var(--r-3);
+    padding: var(--s-6);
+    display: grid; grid-template-columns: 1fr;
+    gap: var(--s-4);
+  }
+  @media (min-width: 720px) {
+    .tldr { grid-template-columns: 1fr 1fr; gap: var(--s-5) var(--s-9); }
+  }
+  .tldr > div { display: flex; flex-direction: column; gap: 4px; }
+  .tldr-k {
+    font-family: var(--t-mono); font-size: 10px;
+    letter-spacing: var(--t-track-wide); text-transform: uppercase;
+    color: var(--c-fg-2);
+  }
+  .tldr-v {
+    font-family: var(--t-sans); font-size: 14px;
+    color: var(--c-fg);
+  }
+
+  .seg { margin-top: var(--s-11); }
+  .seg .eyebrow { margin-bottom: var(--s-3); }
+  .art-h2 {
+    font-family: var(--t-serif);
+    font-size: clamp(26px, 3.2vw, 36px);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.018em;
+    color: var(--c-fg);
+    margin: var(--s-3) 0 var(--s-6);
+    max-width: 28ch;
+  }
+  .art p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--c-fg-1);
+    margin: 0 0 var(--s-4);
+    max-width: 64ch;
+  }
+  .art p strong, .art p em { color: var(--c-fg); }
+
+  .ord-list {
+    list-style: none; padding: 0;
+    margin: var(--s-5) 0;
+    counter-reset: olc;
+    display: flex; flex-direction: column;
+    gap: var(--s-3);
+  }
+  .ord-list li {
+    counter-increment: olc;
+    font-size: 16px; line-height: 1.65;
+    color: var(--c-fg-1);
+    padding-left: var(--s-7);
+    position: relative;
+  }
+  .ord-list li::before {
+    content: counter(olc, decimal-leading-zero);
+    font-family: var(--t-mono); font-size: 11px;
+    letter-spacing: var(--t-track-wide);
+    color: var(--c-accent);
+    position: absolute; left: 0; top: 4px;
+  }
+  .ord-list li strong { color: var(--c-fg); }
+
+  .def-list {
+    list-style: none; padding: 0;
+    margin: var(--s-5) 0;
+    display: flex; flex-direction: column;
+    gap: var(--s-3);
+  }
+  .def-list li {
+    font-size: 15px; line-height: 1.65;
+    color: var(--c-fg-1);
+    padding: var(--s-3) 0;
+    border-top: 1px solid var(--c-line);
+    display: flex; gap: var(--s-3);
+  }
+  .def-list li::before {
+    content: "→";
+    color: var(--c-accent);
+    font-family: var(--t-mono);
+    flex-shrink: 0;
+  }
+  .def-list li strong { color: var(--c-fg); }
+
+  .metrics-row {
+    margin-top: var(--s-7);
+    display: grid; grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--c-line);
+    border: 1px solid var(--c-line);
+    border-radius: var(--r-3);
+    overflow: hidden;
+  }
+  @media (min-width: 720px) {
+    .metrics-row { grid-template-columns: repeat(3, 1fr); }
+  }
+  .metric-card { background: var(--c-bg-1); padding: var(--s-6); }
+  .m-v {
+    font-family: var(--t-mono); font-size: 28px;
+    letter-spacing: -0.02em; color: var(--c-fg);
+  }
+  .m-l {
+    font-family: var(--t-mono); font-size: 11px;
+    letter-spacing: var(--t-track-wide); text-transform: uppercase;
+    color: var(--c-fg-2);
+    margin-top: 6px;
+  }
+
+  .gtm-grid {
+    margin-top: var(--s-6);
+    display: grid; grid-template-columns: 1fr;
+    gap: var(--s-3);
+  }
+  @media (min-width: 720px) { .gtm-grid { grid-template-columns: repeat(3, 1fr); } }
+  .gtm {
+    background: var(--c-bg-1);
+    border: 1px solid var(--c-line);
+    border-radius: var(--r-3);
+    padding: var(--s-5);
+  }
+  .gtm-k {
+    font-family: var(--t-mono); font-size: 11px;
+    letter-spacing: var(--t-track-wide); text-transform: uppercase;
+    color: var(--c-accent);
+  }
+  .gtm-d {
+    font-size: 13px; line-height: 1.55;
+    color: var(--c-fg-1);
+    margin-top: var(--s-2);
+  }
+
+  .art-cta {
+    display: flex; flex-wrap: wrap; gap: var(--s-3);
+  }
+
+  .art-fine {
+    margin-top: var(--s-7);
+    font-family: var(--t-mono); font-size: 11px;
+    line-height: 1.7;
+    color: var(--c-fg-3);
+    max-width: 68ch;
+  }
+
+  .art-foot {
+    max-width: 760px;
+    margin: var(--s-12) auto 0;
+    padding: var(--s-7) 24px 0;
+    border-top: 1px solid var(--c-line);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--t-mono); font-size: 11px;
+    letter-spacing: 0.02em;
+    color: var(--c-fg-2);
+  }
+</style>
