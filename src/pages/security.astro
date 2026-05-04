@@ -5,208 +5,134 @@ import Base from '../layouts/Base.astro';
   title="Security — Stryda"
   description="How Stryda handles sell-side deal data: per-tenant isolation, encryption at rest and in transit, audit logging on every action, and the SOC 2 path."
 >
-  <section class="page-hero surface-dark">
-    <div class="hero-glow ambient-a" aria-hidden="true"></div>
-    <div class="hero-grid bg-grid" aria-hidden="true"></div>
-    <div class="container container-wide" data-reveal>
+  <section class="sec-first">
+    <div class="container">
       <p class="eyebrow">Security &amp; data handling</p>
-      <h1 class="h-display-2 page-h1">Your deal data stays <i>your</i> data.</h1>
-      <p class="lede" style="margin-top: var(--s-7);">
-        Sell-side material is the most sensitive document set a banker handles. Every architectural decision in Stryda starts from that: per-tenant isolation, audit logging on every action, encryption everywhere, and a SOC 2 roadmap on the calendar — not retrofitted at the first enterprise close.
+      <h1 class="h-1" style="margin-top: var(--s-4); max-width: 18ch;">
+        Your deal data stays your data.
+      </h1>
+      <p style="margin-top: var(--s-7); font-size: 18px; max-width: 60ch;">
+        Sell-side material is the most sensitive document set a banker handles. Every architectural decision in Stryda starts from that. Per-tenant isolation, audit logging on every action, encryption at rest and in transit, and a SOC 2 roadmap on the calendar &mdash; not retrofitted at the first enterprise close.
       </p>
     </div>
   </section>
 
-  <section class="sec surface-dark-1">
-    <div class="container container-wide">
-      <div data-reveal>
-        <p class="eyebrow">§01 · Pillars</p>
-        <h2 class="h-display-3" style="max-width: 22ch; margin-top: var(--s-3);">Six commitments. No <i>asterisks.</i></h2>
-      </div>
-      <div class="pillar-grid lp-grid-3" data-reveal data-reveal-stagger>
-        <div class="lp-card lift-on-hover">
-          <span class="lp-card-eyebrow">01 · Tenant isolation</span>
-          <h3 class="lp-card-title">Per-firm boundaries</h3>
-          <p class="lp-card-body">Every firm runs in its own tenant scope. No deal data ever crosses tenant boundaries — including in retrieval. Vector search is filtered by tenant before any matching happens, not after.</p>
-          <ul class="pill-list"><li>Tenant-scoped storage</li><li>Tenant-filtered retrieval</li><li>No shared training pool</li></ul>
+  <section class="sec" id="commitments">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <p class="eyebrow">Commitments</p>
+          <h2 class="h-2" style="margin-top: var(--s-4); max-width: 14ch;">
+            Six commitments. No asterisks.
+          </h2>
         </div>
-        <div class="lp-card lift-on-hover">
-          <span class="lp-card-eyebrow">02 · Encryption</span>
-          <h3 class="lp-card-title">At rest and in transit</h3>
-          <p class="lp-card-body">TLS for every connection in and out. Encrypted-at-rest object storage for source documents. Encrypted database storage for extracted structured data. Key management via cloud KMS, not hand-rolled.</p>
-          <ul class="pill-list"><li>TLS 1.3 in transit</li><li>AES-256 at rest</li><li>KMS-backed keys</li></ul>
-        </div>
-        <div class="lp-card lift-on-hover">
-          <span class="lp-card-eyebrow">03 · Access control</span>
-          <h3 class="lp-card-title">Per-deal RBAC</h3>
-          <p class="lp-card-body">Workspace seats are not the unit of access — deals are. A user only sees deal data they have been added to. Adding a user to a deal is logged. Removing them is logged.</p>
-          <ul class="pill-list"><li>Per-deal roles</li><li>Workspace + deal layers</li><li>Membership audit log</li></ul>
-        </div>
-        <div class="lp-card lift-on-hover">
-          <span class="lp-card-eyebrow">04 · Audit log</span>
-          <h3 class="lp-card-title">Every action captured</h3>
-          <p class="lp-card-body">Every document upload, every output generation, every download, every membership change. Exportable in CSV or pushed to the firm's SIEM via an outbound webhook.</p>
-          <ul class="pill-list"><li>Document access events</li><li>Output generation events</li><li>Webhook export option</li></ul>
-        </div>
-        <div class="lp-card lift-on-hover">
-          <span class="lp-card-eyebrow">05 · Model usage</span>
-          <h3 class="lp-card-title">No training on your data</h3>
-          <p class="lp-card-body">We use Anthropic and OpenAI APIs configured for zero-retention. Your deal documents are not used to train any foundation model, ours or anyone else's. Inputs are not logged on the provider side.</p>
-          <ul class="pill-list"><li>Zero-retention provider mode</li><li>No FM training on tenant data</li><li>Per-call opt-out flags</li></ul>
-        </div>
-        <div class="lp-card lift-on-hover">
-          <span class="lp-card-eyebrow">06 · Vendors</span>
-          <h3 class="lp-card-title">Compliance-ready stack</h3>
-          <p class="lp-card-body">We pick vendors for the SOC 2 path: managed Postgres on a SOC 2 provider, AWS-native object storage and KMS, an auth layer with SOC 2 reporting. Nothing about our stack should slow your CCO down.</p>
-          <ul class="pill-list"><li>AWS-native infra</li><li>Postgres on a SOC 2 host</li><li>Auth with SOC 2 reports</li></ul>
+        <div class="stack">
+          <p>Each row is something we have already built or wired in. None of it is aspirational. If you have a question we haven't answered, write us and we'll add the answer to this page.</p>
         </div>
       </div>
+
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th>Topic</th>
+            <th>Commitment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Tenant isolation</th>
+            <td>Every firm runs in its own tenant scope. No deal data ever crosses tenant boundaries, including in retrieval. Vector search is filtered by tenant before any matching happens.</td>
+          </tr>
+          <tr>
+            <th scope="row">Encryption</th>
+            <td>TLS 1.3 in transit. AES-256 at rest, both for object storage and database. Keys managed via cloud KMS, not hand-rolled.</td>
+          </tr>
+          <tr>
+            <th scope="row">Access control</th>
+            <td>Workspace seats are not the unit of access &mdash; deals are. A user only sees deal data they have been added to. Adding or removing a user from a deal is logged.</td>
+          </tr>
+          <tr>
+            <th scope="row">Audit log</th>
+            <td>Every document upload, every output generation, every download, every membership change. Exportable as CSV or pushed to your SIEM via outbound webhook.</td>
+          </tr>
+          <tr>
+            <th scope="row">Model usage</th>
+            <td>We use Anthropic and OpenAI APIs configured for zero-retention. Your deal documents are not used to train any foundation model, ours or anyone else's. Inputs are not logged on the provider side.</td>
+          </tr>
+          <tr>
+            <th scope="row">Vendors</th>
+            <td>Compliance-ready stack. Managed Postgres on a SOC 2 host. AWS-native object storage and KMS. Auth layer with SOC 2 reporting. Public sub-processor list.</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </section>
 
-  <section class="sec surface-paper">
-    <div class="container container-wide">
-      <div data-reveal>
-        <p class="eyebrow">§02 · Compliance roadmap</p>
-        <h2 class="h-display-3" style="max-width: 22ch; margin-top: var(--s-3);">SOC 2 on the <i>calendar.</i></h2>
-        <p class="lede" style="margin-top: var(--s-6); max-width: 60ch;">
-          We write the controls now and we audit them in the order an enterprise compliance team will ask for. The architecture is designed so that the audit confirms what is already true — not so that we go fix things in a panic.
-        </p>
-      </div>
-      <div class="roadmap" data-reveal data-reveal-stagger>
-        <div class="rm-cell">
-          <div class="rm-ph">Phase 0</div>
-          <div class="rm-t">Architecture</div>
-          <div class="rm-d">Tenant isolation, encryption, audit logging, RBAC built into the foundation. No retrofit later.</div>
-          <div class="rm-s rm-live"><span></span> Live</div>
+  <section class="sec" id="roadmap">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <p class="eyebrow">Compliance roadmap</p>
+          <h2 class="h-2" style="margin-top: var(--s-4); max-width: 14ch;">
+            SOC 2 on the calendar.
+          </h2>
         </div>
-        <div class="rm-cell">
-          <div class="rm-ph">Phase 1</div>
-          <div class="rm-t">Vendor SOC 2</div>
-          <div class="rm-d">Sub-processor list, vendor SOC 2 reports collected and reviewed. Public sub-processor page.</div>
-          <div class="rm-s rm-live"><span></span> Live</div>
-        </div>
-        <div class="rm-cell">
-          <div class="rm-ph">Phase 2</div>
-          <div class="rm-t">SOC 2 Type 1</div>
-          <div class="rm-d">Controls documented, observation period started, gap assessment closed. Targeting month nine.</div>
-          <div class="rm-s rm-next"><span></span> Q3</div>
-        </div>
-        <div class="rm-cell">
-          <div class="rm-ph">Phase 3</div>
-          <div class="rm-t">SOC 2 Type 2</div>
-          <div class="rm-d">Twelve-month observation, full report, annual renewals. Standard enterprise sales artifact.</div>
-          <div class="rm-s rm-later"><span></span> Year 2</div>
+        <div class="stack">
+          <p>We write the controls now and we audit them in the order an enterprise compliance team will ask for. The architecture is designed so that the audit confirms what is already true, not so that we go fix things in a panic.</p>
         </div>
       </div>
+
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th>Phase</th>
+            <th>What it covers</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Phase 0 &middot; Architecture</th>
+            <td>Tenant isolation, encryption, audit logging, RBAC built into the foundation. No retrofit later.</td>
+            <td>Live</td>
+          </tr>
+          <tr>
+            <th scope="row">Phase 1 &middot; Vendor SOC 2</th>
+            <td>Sub-processor list, vendor SOC 2 reports collected and reviewed, public sub-processor page.</td>
+            <td>Live</td>
+          </tr>
+          <tr>
+            <th scope="row">Phase 2 &middot; SOC 2 Type 1</th>
+            <td>Controls documented, observation period started, gap assessment closed.</td>
+            <td>Targeting Q3</td>
+          </tr>
+          <tr>
+            <th scope="row">Phase 3 &middot; SOC 2 Type 2</th>
+            <td>Twelve-month observation, full report, annual renewals. Standard enterprise sales artifact.</td>
+            <td>Year 2</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </section>
 
-  <section class="sec surface-dark">
-    <div class="container container-wide">
-      <div class="split-row">
-        <div data-reveal>
-          <p class="eyebrow">§03 · How we think</p>
-          <h2 class="h-display-2">No surprises at the <i>diligence</i> call.</h2>
+  <section class="sec">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <p class="eyebrow">How we think</p>
+          <h2 class="h-2" style="margin-top: var(--s-4); max-width: 16ch;">
+            No surprises at the diligence call.
+          </h2>
         </div>
-        <div data-reveal class="prose">
-          <p>The reason boutiques do not adopt AI tools is not the technology. It is the security review they have to put their general counsel through. We have done the architecture work so that the answer to every common question is already "yes" — and the answer is documented, not improvised.</p>
+        <div class="stack">
+          <p>The reason boutiques do not adopt AI tools is not the technology. It is the security review they have to put their general counsel through. We have done the architecture work so that the answer to every common question is already yes &mdash; and the answer is documented, not improvised.</p>
           <p>We will hand a CISO our architecture diagram, our sub-processor list, our key management documentation, our vendor SOC 2 reports, and our internal control framework. Every question we get back is one we have already written down the answer to.</p>
-          <p>If you have a security or compliance question that is not addressed here, write us. We will answer it in plain English and add the answer to this page.</p>
-          <a href="mailto:bobbyzli@berkeley.edu" class="btn-link" style="margin-top: var(--s-4);">Email security questions</a>
+          <p style="margin-top: var(--s-7);">
+            <a href="mailto:bobbyzli@berkeley.edu" class="btn-link">Email security questions</a>
+          </p>
         </div>
       </div>
     </div>
   </section>
 </Base>
-
-<style>
-  .page-hero {
-    position: relative;
-    padding: clamp(80px, 10vw, 144px) 0 clamp(64px, 8vw, 112px);
-    overflow: hidden;
-    border-bottom: 1px solid var(--c-line);
-  }
-  .hero-glow {
-    position: absolute; width: 480px; height: 480px;
-    border-radius: 50%;
-    background: radial-gradient(circle, var(--c-accent-glow) 0%, transparent 65%);
-    filter: blur(40px); pointer-events: none;
-    top: -120px; right: -120px; opacity: 0.4;
-  }
-  .hero-grid {
-    position: absolute; inset: 0;
-    -webkit-mask-image: linear-gradient(to bottom, black 25%, transparent 100%);
-            mask-image: linear-gradient(to bottom, black 25%, transparent 100%);
-    pointer-events: none;
-  }
-  .page-h1 { max-width: 18ch; margin-top: var(--s-4); }
-
-  .pillar-grid { margin-top: var(--s-9); }
-  .pill-list {
-    list-style: none; padding: 0; margin: var(--s-4) 0 0;
-    display: flex; flex-direction: column; gap: 6px;
-  }
-  .pill-list li {
-    font-family: var(--t-mono); font-size: 11px;
-    color: var(--c-fg-1);
-    display: flex; align-items: center; gap: 6px;
-  }
-  .pill-list li::before { content: "→"; color: var(--c-accent); }
-
-  .roadmap {
-    display: grid; grid-template-columns: 1fr;
-    gap: 1px;
-    background: var(--c-line-ink);
-    border: 1px solid var(--c-line-ink);
-    border-radius: var(--r-3);
-    overflow: hidden;
-    margin-top: var(--s-9);
-  }
-  @media (min-width: 880px) { .roadmap { grid-template-columns: repeat(4, 1fr); } }
-  .rm-cell { background: #fff; padding: var(--s-7); }
-  .rm-ph {
-    font-family: var(--t-mono); font-size: 10px;
-    letter-spacing: var(--t-track-wide); text-transform: uppercase;
-    color: var(--c-ink-2);
-  }
-  .rm-t {
-    font-family: var(--t-serif); font-size: 22px;
-    color: var(--c-ink); margin-top: 4px; line-height: 1.2;
-  }
-  .rm-d {
-    font-size: 13px; line-height: 1.55;
-    color: var(--c-ink-1); margin-top: var(--s-3);
-  }
-  .rm-s {
-    display: inline-flex; align-items: center; gap: 6px;
-    margin-top: var(--s-5);
-    font-family: var(--t-mono); font-size: 10px;
-    letter-spacing: 0.12em; text-transform: uppercase;
-  }
-  .rm-s span {
-    width: 6px; height: 6px; border-radius: 50%;
-    display: inline-block;
-  }
-  .rm-live { color: var(--c-ok); }
-  .rm-live span { background: var(--c-ok); }
-  .rm-next { color: var(--c-accent); }
-  .rm-next span { background: var(--c-accent); }
-  .rm-later { color: var(--c-ink-2); }
-  .rm-later span { background: var(--c-ink-2); }
-
-  .split-row {
-    display: grid; grid-template-columns: 1fr;
-    gap: var(--s-9);
-  }
-  @media (min-width: 1024px) {
-    .split-row { grid-template-columns: 5fr 7fr; gap: var(--s-11); }
-  }
-  .prose p {
-    font-size: var(--t-body-lg);
-    line-height: 1.65;
-    color: var(--c-fg-1);
-    margin: 0 0 var(--s-5);
-    max-width: 64ch;
-  }
-</style>

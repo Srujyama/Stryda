@@ -5,170 +5,114 @@ import Base from '../layouts/Base.astro';
   title="About — Stryda"
   description="Why Stryda exists, who we serve, and how we work with the first ten boutiques."
 >
-  <section class="page-hero surface-dark">
-    <div class="hero-glow ambient-a" aria-hidden="true"></div>
-    <div class="hero-grid bg-grid" aria-hidden="true"></div>
-    <div class="container container-wide" data-reveal>
+  <section class="sec-first">
+    <div class="container">
       <p class="eyebrow">About</p>
-      <h1 class="h-display-2 page-h1">Boutique sell-side deserves <i>great</i> tooling.</h1>
-      <p class="lede" style="margin-top: var(--s-7);">
-        Big banks have internal AI teams and seven-figure tooling budgets. Boutiques run on associates, late nights, and prior CIMs. We are building the missing layer — workflow, not chatbot — so a five-person shop ships work that competes with a fifty-person one.
+      <h1 class="h-1" style="margin-top: var(--s-4); max-width: 22ch;">
+        Boutique sell-side deserves great tooling.
+      </h1>
+      <p style="margin-top: var(--s-7); font-size: 18px; max-width: 60ch;">
+        Big banks have internal AI teams and seven-figure tooling budgets. Boutiques run on associates, late nights, and prior CIMs. We are building the missing layer &mdash; workflow, not chatbot &mdash; so a five-person shop ships work that competes with a fifty-person one.
       </p>
     </div>
   </section>
 
-  <section class="sec surface-dark-1">
-    <div class="container container-wide">
-      <div class="split-row">
-        <div data-reveal>
-          <p class="eyebrow">§01 · Why us</p>
-          <h2 class="h-display-2">A copilot built by people who have done the <i>job.</i></h2>
+  <section class="sec">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <p class="eyebrow">Why us</p>
+          <h2 class="h-2" style="margin-top: var(--s-4); max-width: 18ch;">
+            A copilot built by people who have done the job.
+          </h2>
         </div>
-        <div data-reveal class="prose">
-          <p>Sell-side mandates are mechanical at the edges and judgment-heavy in the middle. The mechanical edges — financial extraction, draft writing, buyer research — are the part AI is best at and the part bankers spend the most time on. Closing that gap is what Stryda exists to do.</p>
+        <div class="stack">
+          <p>Sell-side mandates are mechanical at the edges and judgment-heavy in the middle. The mechanical edges &mdash; financial extraction, draft writing, buyer research &mdash; are the part AI is best at and the part bankers spend the most time on. Closing that gap is what Stryda exists to do.</p>
           <p>We talk to associates and partners weekly. We ship features they ask for. We do not ship features they don't. Every line of copy on this site, every module in the product, traces back to a conversation with a banker working a real mandate.</p>
-          <p>The endgame is bigger than a single workflow tool. We are not ready to talk about that yet. The first thing we have to earn is your associate's trust on Friday morning.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="sec surface-paper">
-    <div class="container container-wide">
-      <div data-reveal>
-        <p class="eyebrow">§02 · What we believe</p>
-        <h2 class="h-display-3" style="max-width: 22ch; margin-top: var(--s-3);">Three things we will <i>not</i> do.</h2>
-      </div>
-      <div class="why-grid lp-grid-3" data-reveal data-reveal-stagger>
-        <div class="lp-card lift-on-hover">
-          <span class="lp-card-eyebrow">01</span>
-          <h3 class="lp-card-title">No black-box numbers</h3>
-          <p class="lp-card-body">Every figure in every output traces back to its source — a page in a PDF, a cell in a workbook. No "trust the model." If a banker can't defend it in a diligence call, it doesn't ship.</p>
+  <section class="sec">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <p class="eyebrow">What we believe</p>
+          <h2 class="h-2" style="margin-top: var(--s-4); max-width: 14ch;">
+            Three things we will not do.
+          </h2>
         </div>
-        <div class="lp-card lift-on-hover">
-          <span class="lp-card-eyebrow">02</span>
-          <h3 class="lp-card-title">No cross-tenant anything</h3>
-          <p class="lp-card-body">Your deal data does not train our model. Your deal data does not show up in retrieval for another tenant. The boundary is enforced in the architecture, not the policy doc.</p>
-        </div>
-        <div class="lp-card lift-on-hover">
-          <span class="lp-card-eyebrow">03</span>
-          <h3 class="lp-card-title">No enterprise-sales theatre</h3>
-          <p class="lp-card-body">Free for ninety days. Real mandates. The associate decides. If the product is not pulling its weight after two deals, we want to know — and we want you to walk.</p>
-        </div>
+        <ol class="dash-list">
+          <li><strong>No black-box numbers.</strong> Every figure in every output traces back to its source. No "trust the model." If a banker can't defend it in a diligence call, it doesn't ship.</li>
+          <li><strong>No cross-tenant anything.</strong> Your deal data does not train our model. Your deal data does not show up in retrieval for another tenant. The boundary is enforced in the architecture, not the policy doc.</li>
+          <li><strong>No enterprise-sales theatre.</strong> Free for ninety days. Real mandates. The associate decides. If the product is not pulling its weight after two deals, we want to know &mdash; and we want you to walk.</li>
+        </ol>
       </div>
     </div>
   </section>
 
-  <section class="sec surface-dark">
-    <div class="container container-wide">
-      <div data-reveal>
-        <p class="eyebrow">§03 · Design partner program</p>
-        <h2 class="h-display-2" style="max-width: 22ch;">Ten boutiques. <i>Three</i> at a time.</h2>
-        <p class="lede" style="margin-top: var(--s-6); max-width: 64ch;">
-          We are onboarding ten boutiques in cohorts of three. Each design partner is free for ninety days, runs at least two real mandates through the system, and meets weekly with the founding team for a thirty-minute feedback call. We sit next to your associates while they use the product. We capture every breakage and every wish.
-        </p>
-      </div>
-      <div class="partner-grid lp-grid-2" data-reveal data-reveal-stagger>
-        <div class="lp-card">
-          <span class="lp-card-eyebrow">What you get</span>
-          <h3 class="lp-card-title">Ninety days, on the house</h3>
-          <ul class="prog-list">
-            <li>Full product, all modules</li>
-            <li>Onboarding support, week one</li>
-            <li>Weekly half-hour with founders</li>
-            <li>Direct line to the engineers fixing what breaks</li>
-            <li>Every feature request tracked, prioritized, replied to</li>
-          </ul>
+  <section class="sec">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <p class="eyebrow">Design partner program</p>
+          <h2 class="h-2" style="margin-top: var(--s-4); max-width: 14ch;">
+            Ten boutiques. Three at a time.
+          </h2>
         </div>
-        <div class="lp-card">
-          <span class="lp-card-eyebrow">What we ask</span>
-          <h3 class="lp-card-title">Two real mandates</h3>
-          <ul class="prog-list">
-            <li>Run at least two real sell-side mandates through Stryda</li>
-            <li>Show up weekly for thirty minutes of feedback</li>
-            <li>Tell us when it breaks, even when it's awkward</li>
-            <li>Convert at $2–3k a month after day ninety if it's earning its keep</li>
-            <li>Walk if it isn't — we'd rather know early</li>
-          </ul>
+        <div class="stack">
+          <p>We are onboarding ten boutiques in cohorts of three. Each design partner is free for ninety days, runs at least two real mandates through the system, and meets weekly with the founding team for a thirty-minute feedback call. We sit next to your associates while they use the product. We capture every breakage and every wish.</p>
         </div>
       </div>
 
-      <div class="hero-cta" style="margin-top: var(--s-9);">
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th>What you get</th>
+            <th>What we ask</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Full product, all modules, ninety days free</td>
+            <td>Two real sell-side mandates run through Stryda</td>
+          </tr>
+          <tr>
+            <td>Onboarding support, week one</td>
+            <td>Thirty minutes weekly with the founding team</td>
+          </tr>
+          <tr>
+            <td>Direct line to engineers fixing what breaks</td>
+            <td>Tell us when it breaks, even when it's awkward</td>
+          </tr>
+          <tr>
+            <td>Every feature request tracked, prioritized, replied to</td>
+            <td>Convert at $2&ndash;3k per month after day ninety, or walk</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="margin-top: var(--s-8); display: flex; gap: var(--s-5); flex-wrap: wrap;">
         <a href="/demo" class="btn">Request a demo</a>
-        <a href="mailto:bobbyzli@berkeley.edu" class="btn-ghost btn">Email founders</a>
+        <a href="mailto:bobbyzli@berkeley.edu" class="btn-link">Email founders</a>
       </div>
     </div>
   </section>
 
-  <section class="sec surface-dark-1">
-    <div class="container container-wide" data-reveal>
-      <p class="eyebrow">§04 · Where we are</p>
-      <h2 class="h-display-2" style="max-width: 22ch;">Founded 2026. <i>San Francisco.</i></h2>
-      <p class="lede" style="margin-top: var(--s-6); max-width: 64ch;">
-        Small founding team. Live design-partner cohort. Software shipping weekly. If you advise on lower-middle-market sell-side deals or you back vertical AI for regulated workflows, we'd like to hear from you.
-      </p>
-      <div class="hero-cta" style="margin-top: var(--s-7);">
-        <a href="/demo" class="btn">Request a demo</a>
-        <a href="mailto:bobbyzli@berkeley.edu" class="btn-ghost btn">bobbyzli@berkeley.edu</a>
+  <section class="sec">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <p class="eyebrow">Where we are</p>
+          <h2 class="h-2" style="margin-top: var(--s-4); max-width: 14ch;">
+            Founded 2026. San Francisco.
+          </h2>
+        </div>
+        <div class="stack">
+          <p>Small founding team. Live design-partner cohort. Software shipping weekly. If you advise on lower-middle-market sell-side deals or you back vertical AI for regulated workflows, we'd like to hear from you.</p>
+        </div>
       </div>
     </div>
   </section>
 </Base>
-
-<style>
-  .page-hero {
-    position: relative;
-    padding: clamp(80px, 10vw, 144px) 0 clamp(64px, 8vw, 112px);
-    overflow: hidden;
-    border-bottom: 1px solid var(--c-line);
-  }
-  .hero-glow {
-    position: absolute; width: 480px; height: 480px;
-    border-radius: 50%;
-    background: radial-gradient(circle, var(--c-accent-glow) 0%, transparent 65%);
-    filter: blur(40px); pointer-events: none;
-    top: -120px; right: -120px; opacity: 0.4;
-  }
-  .hero-grid {
-    position: absolute; inset: 0;
-    -webkit-mask-image: linear-gradient(to bottom, black 25%, transparent 100%);
-            mask-image: linear-gradient(to bottom, black 25%, transparent 100%);
-    pointer-events: none;
-  }
-  .page-h1 { max-width: 18ch; margin-top: var(--s-4); }
-
-  .split-row {
-    display: grid; grid-template-columns: 1fr;
-    gap: var(--s-9);
-  }
-  @media (min-width: 1024px) {
-    .split-row { grid-template-columns: 5fr 7fr; gap: var(--s-11); }
-  }
-  .prose p {
-    font-size: var(--t-body-lg); line-height: 1.65;
-    color: var(--c-fg-1);
-    margin: 0 0 var(--s-5);
-    max-width: 64ch;
-  }
-
-  .why-grid { margin-top: var(--s-9); }
-  .partner-grid { margin-top: var(--s-9); }
-
-  .prog-list {
-    list-style: none; padding: 0; margin: var(--s-4) 0 0;
-    display: flex; flex-direction: column; gap: var(--s-3);
-  }
-  .prog-list li {
-    font-size: 14px; line-height: 1.55;
-    color: var(--c-fg-1);
-    display: flex; gap: var(--s-3);
-  }
-  .prog-list li::before {
-    content: "→"; color: var(--c-accent);
-    font-family: var(--t-mono); flex-shrink: 0;
-  }
-
-  .hero-cta {
-    display: flex; flex-wrap: wrap; gap: var(--s-3); align-items: center;
-  }
-</style>

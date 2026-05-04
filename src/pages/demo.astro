@@ -1,10 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 
-// To wire the form to a real inbox, replace this with your Formspree
-// endpoint (https://formspree.io) — e.g. https://formspree.io/f/xxxxxxxx.
-// Until it's set, the form falls back to a mailto: that opens the user's
-// email client with the field contents prefilled.
+// Replace with a Formspree endpoint to deliver to inbox.
+// Until set, the form submits via mailto: to FALLBACK_EMAIL.
 const FORMSPREE_ENDPOINT = '';
 const FALLBACK_EMAIL = 'bobbyzli@berkeley.edu';
 const formAction = FORMSPREE_ENDPOINT || `mailto:${FALLBACK_EMAIL}`;
@@ -13,49 +11,37 @@ const formAction = FORMSPREE_ENDPOINT || `mailto:${FALLBACK_EMAIL}`;
   title="Request a demo — Stryda"
   description="Pick a real mandate. Bring the documents. We'll show you a live ingestion and a draft set of outputs in under an hour."
 >
-  <section class="page-hero surface-dark">
-    <div class="hero-glow ambient-a" aria-hidden="true"></div>
-    <div class="hero-grid bg-grid" aria-hidden="true"></div>
-    <div class="container container-wide" data-reveal>
+  <section class="sec-first">
+    <div class="container">
       <p class="eyebrow">Request a demo</p>
-      <h1 class="h-display-2 page-h1">Bring a deal. See it <i>shipped.</i></h1>
-      <p class="lede" style="margin-top: var(--s-7);">
-        Pick a real mandate you're working. Bring the documents. We will run a live ingestion and walk you through the draft CIM, teaser, normalized financials, and buyer list in under an hour. No prepared deck — your data, your outputs.
+      <h1 class="h-1" style="margin-top: var(--s-4); max-width: 18ch;">
+        Bring a deal. See it shipped.
+      </h1>
+      <p style="margin-top: var(--s-7); font-size: 18px; max-width: 60ch;">
+        Pick a real mandate you're working. Bring the documents. We will run a live ingestion and walk you through the draft CIM, teaser, normalized financials, and buyer list in under an hour. No prepared deck &mdash; your data, your outputs.
       </p>
     </div>
   </section>
 
-  <section class="sec surface-dark-1" style="padding-bottom: clamp(96px, 14vw, 200px);">
-    <div class="container container-wide">
+  <section class="sec">
+    <div class="container">
       <div class="demo-grid">
-        <aside class="aside" data-reveal>
-          <div class="info-card">
-            <span class="lp-card-eyebrow">Format</span>
-            <h3 class="lp-card-title">30–60 minute call</h3>
-            <p class="info-p">Founder-led. We share screen, you upload one mandate, we walk through the four outputs as they generate. You ask questions throughout.</p>
-          </div>
-          <div class="info-card">
-            <span class="lp-card-eyebrow">Bring</span>
-            <h3 class="lp-card-title">One real mandate</h3>
-            <ul class="info-list">
-              <li>3–5 years of P&amp;L, balance sheet, cash flow</li>
-              <li>Management deck or business overview</li>
-              <li>Prior CIM or pitch material (optional)</li>
-              <li>Customer concentration data (optional)</li>
-            </ul>
-          </div>
-          <div class="info-card">
-            <span class="lp-card-eyebrow">After the call</span>
-            <h3 class="lp-card-title">If it fits</h3>
-            <p class="info-p">We talk about the design-partner program — ninety days free, two real mandates, weekly half-hour, $2–3k/month after day ninety if it's earning its keep.</p>
-          </div>
+        <aside>
+          <p class="eyebrow">What to expect</p>
+          <ul class="dash-list" style="margin-top: var(--s-5);">
+            <li><strong>Format.</strong> Founder-led, 30&ndash;60 minutes. Screen share. You upload one mandate; we walk through the four outputs as they generate.</li>
+            <li><strong>Bring.</strong> Three to five years of P&amp;L, balance sheet, cash flow. Management deck or business overview. Prior CIM if you have one.</li>
+            <li><strong>After.</strong> If it fits, we talk about the design-partner program: ninety days free, two real mandates, $2&ndash;3k per month after.</li>
+          </ul>
         </aside>
 
-        <div class="form-card" data-reveal data-reveal-from="right">
+        <div class="form-wrap">
           <p class="eyebrow">Your details</p>
-          <h2 class="form-h">Tell us about your firm.</h2>
-          <p class="form-sub">
-            We reply within one business day. Everything stays between us — we do not share contact lists with anyone, ever.
+          <h2 class="h-3" style="margin-top: var(--s-3); max-width: 24ch;">
+            Tell us about your firm. We reply within one business day.
+          </h2>
+          <p style="margin-top: var(--s-4); color: var(--c-fg-2); font-size: 14px;">
+            No newsletters. No third-party sharing. Everything stays between us.
           </p>
 
           <form
@@ -90,7 +76,7 @@ const formAction = FORMSPREE_ENDPOINT || `mailto:${FALLBACK_EMAIL}`;
               <div class="field">
                 <label for="role">Your role</label>
                 <select id="role" name="role" required>
-                  <option value="">Select…</option>
+                  <option value="">Select&hellip;</option>
                   <option value="Partner / MD">Partner / MD</option>
                   <option value="Director / VP">Director / VP</option>
                   <option value="Associate / Analyst">Associate / Analyst</option>
@@ -102,7 +88,7 @@ const formAction = FORMSPREE_ENDPOINT || `mailto:${FALLBACK_EMAIL}`;
               <div class="field">
                 <label for="firmType">Firm type</label>
                 <select id="firmType" name="firmType" required>
-                  <option value="">Select…</option>
+                  <option value="">Select&hellip;</option>
                   <option value="Boutique investment bank">Boutique investment bank</option>
                   <option value="Search fund">Search fund</option>
                   <option value="M&A advisory">M&amp;A advisory</option>
@@ -114,58 +100,26 @@ const formAction = FORMSPREE_ENDPOINT || `mailto:${FALLBACK_EMAIL}`;
             </div>
 
             <div class="field">
-              <label for="dealsPerYear">Sell-side mandates per year (approximate)</label>
+              <label for="dealsPerYear">Sell-side mandates per year</label>
               <select id="dealsPerYear" name="dealsPerYear">
-                <option value="">Select…</option>
-                <option value="1–5">1–5</option>
-                <option value="6–15">6–15</option>
-                <option value="16–30">16–30</option>
+                <option value="">Select&hellip;</option>
+                <option value="1–5">1&ndash;5</option>
+                <option value="6–15">6&ndash;15</option>
+                <option value="16–30">16&ndash;30</option>
                 <option value="30+">30+</option>
                 <option value="Not applicable">Not applicable</option>
               </select>
             </div>
 
             <div class="field">
-              <label for="message">Anything you want us to know?</label>
-              <textarea id="message" name="message" placeholder="A live mandate you're working, sectors you cover, what you're hoping the demo answers…"></textarea>
-              <span class="hint">Optional. Helps us tailor the demo to your workflow.</span>
+              <label for="message">Anything you want us to know? (optional)</label>
+              <textarea id="message" name="message" placeholder="A live mandate you're working, sectors you cover, what you're hoping the demo answers&hellip;"></textarea>
             </div>
 
             <div class="submit-row">
-              <button type="submit" class="btn">
-                Send request
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="square" stroke-linejoin="miter" /></svg>
-              </button>
-              <p class="privacy-note">No newsletters. No third-party sharing.</p>
+              <button type="submit" class="btn">Send request</button>
             </div>
           </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec surface-paper">
-    <div class="container container-wide">
-      <div data-reveal>
-        <p class="eyebrow">What happens next</p>
-        <h2 class="h-display-3" style="max-width: 22ch; margin-top: var(--s-3);">Four steps. One <i>week.</i></h2>
-      </div>
-      <div class="steps" data-reveal data-reveal-stagger>
-        <div class="step-card">
-          <span class="step-n">01</span>
-          <p><strong>Reply within a business day.</strong> Founder-direct, no SDR. We propose two or three demo slots that week.</p>
-        </div>
-        <div class="step-card">
-          <span class="step-n">02</span>
-          <p><strong>30–60 minute call.</strong> You upload one real mandate. We walk through the four outputs live. You ask anything.</p>
-        </div>
-        <div class="step-card">
-          <span class="step-n">03</span>
-          <p><strong>Design-partner conversation.</strong> If it fits — ninety days free, two real mandates, weekly half-hour with the team.</p>
-        </div>
-        <div class="step-card">
-          <span class="step-n">04</span>
-          <p><strong>Onboarding within a week.</strong> Workspace provisioned, security review answered, your first mandate ingested with us alongside.</p>
         </div>
       </div>
     </div>
@@ -173,84 +127,19 @@ const formAction = FORMSPREE_ENDPOINT || `mailto:${FALLBACK_EMAIL}`;
 </Base>
 
 <style>
-  .page-hero {
-    position: relative;
-    padding: clamp(80px, 10vw, 144px) 0 clamp(64px, 8vw, 112px);
-    overflow: hidden;
-    border-bottom: 1px solid var(--c-line);
-  }
-  .hero-glow {
-    position: absolute; width: 480px; height: 480px;
-    border-radius: 50%;
-    background: radial-gradient(circle, var(--c-accent-glow) 0%, transparent 65%);
-    filter: blur(40px); pointer-events: none;
-    top: -120px; right: -120px; opacity: 0.4;
-  }
-  .hero-grid {
-    position: absolute; inset: 0;
-    -webkit-mask-image: linear-gradient(to bottom, black 25%, transparent 100%);
-            mask-image: linear-gradient(to bottom, black 25%, transparent 100%);
-    pointer-events: none;
-  }
-  .page-h1 { max-width: 18ch; margin-top: var(--s-4); }
-
   .demo-grid {
-    display: grid; grid-template-columns: 1fr;
-    gap: var(--s-9);
-    align-items: start;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--s-7);
   }
   @media (min-width: 1024px) {
-    .demo-grid { grid-template-columns: 5fr 7fr; gap: var(--s-11); }
-  }
-
-  .aside {
-    display: flex; flex-direction: column; gap: var(--s-5);
-  }
-  .info-card {
-    background: var(--c-bg-2);
-    border: 1px solid var(--c-line);
-    border-radius: var(--r-3);
-    padding: var(--s-7);
-  }
-  .info-p {
-    font-size: 14px; line-height: 1.6;
-    color: var(--c-fg-1); margin: var(--s-3) 0 0;
-  }
-  .info-list {
-    list-style: none; padding: 0; margin: var(--s-4) 0 0;
-    display: flex; flex-direction: column; gap: var(--s-3);
-    font-size: 13px; color: var(--c-fg-1);
-  }
-  .info-list li {
-    display: flex; gap: var(--s-2);
-  }
-  .info-list li::before {
-    content: "→"; color: var(--c-accent);
-    font-family: var(--t-mono);
-  }
-
-  .form-card {
-    background: var(--c-bg-1);
-    border: 1px solid var(--c-line);
-    border-radius: var(--r-4);
-    padding: clamp(28px, 4vw, 56px);
-  }
-  .form-h {
-    font-family: var(--t-serif);
-    font-size: 32px; font-weight: 400;
-    color: var(--c-fg);
-    margin: var(--s-2) 0 0;
-    line-height: 1.15;
-  }
-  .form-sub {
-    font-size: 14px; line-height: 1.55;
-    color: var(--c-fg-1);
-    margin: var(--s-3) 0 var(--s-7);
-    max-width: 50ch;
+    .demo-grid { grid-template-columns: 4fr 8fr; gap: var(--s-9); }
   }
 
   .form-stack {
-    display: flex; flex-direction: column; gap: var(--s-6);
+    margin-top: var(--s-7);
+    display: flex; flex-direction: column;
+    gap: var(--s-5);
   }
   .form-row {
     display: grid; grid-template-columns: 1fr;
@@ -260,41 +149,8 @@ const formAction = FORMSPREE_ENDPOINT || `mailto:${FALLBACK_EMAIL}`;
     .form-row.two { grid-template-columns: 1fr 1fr; }
   }
   .submit-row {
-    display: flex; gap: var(--s-3);
-    align-items: center; flex-wrap: wrap;
-    padding-top: var(--s-4);
-    border-top: 1px solid var(--c-line);
-  }
-  .privacy-note {
-    font-size: 12px; color: var(--c-fg-2); margin: 0;
-  }
-
-  .steps {
-    margin-top: var(--s-9);
-    display: grid; grid-template-columns: 1fr;
-    gap: 1px;
-    background: var(--c-line-ink);
-    border: 1px solid var(--c-line-ink);
-    border-radius: var(--r-3);
-    overflow: hidden;
-  }
-  @media (min-width: 880px) { .steps { grid-template-columns: repeat(2, 1fr); } }
-  .step-card {
-    background: #fff; padding: var(--s-7);
+    margin-top: var(--s-3);
     display: flex; gap: var(--s-5);
-    align-items: flex-start;
+    align-items: center;
   }
-  .step-n {
-    font-family: var(--t-mono); font-size: 11px;
-    letter-spacing: var(--t-track-wide);
-    color: var(--c-accent);
-    padding-top: 2px;
-    flex-shrink: 0;
-  }
-  .step-card p {
-    font-size: 14px; line-height: 1.6;
-    color: var(--c-ink-1);
-    margin: 0;
-  }
-  .step-card strong { color: var(--c-ink); font-weight: 500; }
 </style>
